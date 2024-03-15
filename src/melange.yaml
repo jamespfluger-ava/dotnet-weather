@@ -1,0 +1,36 @@
+package:
+  name: dotnet-weather-api
+  version: 1.0.0
+  description: Tiny weather API for ASP.NET
+  target-architecture:
+    - x86_64
+  dependencies:
+    runtime:
+      - wolfi-base
+      - aspnet-8-runtime
+      - ld-linux
+      - ca-certificates-bundle
+      - glibc
+      - glibc-locale-posix
+      - icu
+      - libcrypto3
+      - libgcc
+      - libssl3
+      - libstdc++
+      - lttng-ust
+      - openssl-config
+      - tzdata
+      - zlib
+
+environment:
+  contents:
+    repositories:
+      - https://packages.wolfi.dev/os
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    packages:
+      - wolfi-base
+      - dotnet-8-sdk
+
+pipeline:
+  - runs: dotnet publish WeatherAPI.csproj --configuration release --output /app/publish
