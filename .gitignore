@@ -553,3 +553,10 @@ FodyWeavers.xsd
 # Exclude generated keys from melange
 *.rsa
 *.pub
+
+# Exclude sbom
+*.cdx
+*.spdx.json
+
+# Exclude built tar file
+*.tar
